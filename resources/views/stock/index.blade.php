@@ -22,9 +22,9 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Stock Product List</h4>
-                    <p class="mb-0">A stock product dashboard lets you easily gather and visualize stock product data from optimizing <br>
-                        the stock product experience, ensuring stock product retention. </p>
+                    <h4 class="mb-3">Lista de productos en existencia</h4>
+                    <p class="mb-0">Un panel de control de productos en stock le permite recopilar y visualizar fácilmente datos 
+                        de productos en stock optimizando la experiencia del producto en stock, asegurando la retención del producto en stock. </p>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
             <form action="{{ route('order.stockManage') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     <div class="form-group row">
-                        <label for="row" class="col-sm-3 align-self-center">Row:</label>
+                        <label for="row" class="col-sm-3 align-self-center">Filas:</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="row">
                                 <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -45,9 +45,9 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Buscar:</label>
                         <div class="input-group col-sm-8">
-                            <input type="text" id="search" class="form-control" name="search" placeholder="Search product" value="{{ request('search') }}">
+                            <input type="text" id="search" class="form-control" name="search" placeholder="Buscar productos" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 <a href="{{ route('order.stockManage') }}" class="input-group-text bg-danger"><i class="fa-solid fa-trash"></i></a>
@@ -63,12 +63,12 @@
                 <table class="table mb-0">
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
-                            <th>No.</th>
-                            <th>Photo</th>
-                            <th>@sortablelink('product_name', 'name')</th>
-                            <th>@sortablelink('category.name', 'category')</th>
-                            <th>@sortablelink('supplier.name', 'supplier')</th>
-                            <th>@sortablelink('selling_price', 'price')</th>
+                            <th>#</th>
+                            <th>Foto</th>
+                            <th>@sortablelink('product_name', 'Nombre')</th>
+                            <th>@sortablelink('category.name', 'Catgoria')</th>
+                            <th>@sortablelink('supplier.name', 'Proveedor')</th>
+                            <th>@sortablelink('selling_price', 'Precio')</th>
                             <th>Stock</th>
                         </tr>
                     </thead>

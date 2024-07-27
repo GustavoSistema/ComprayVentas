@@ -109,7 +109,7 @@ class PaySalaryController extends Controller
 
         PaySalary::create($validatedData);
 
-        return Redirect::route('pay-salary.payHistory')->with('success', 'Employee Salary Paid Successfully!');
+        return Redirect::route('pay-salary.payHistory')->with('success', '¡Salario de los empleados pagado con éxito!');
     }
 
     /**
@@ -143,6 +143,6 @@ class PaySalaryController extends Controller
     {
         PaySalary::destroy($paySalary->id);
 
-        return Redirect::route('pay-salary.payHistory')->with('success', 'Employee History Pay Salary has been deleted!');
+        return Redirect::route('pay-salary.payHistory')->with('success', '¡Se ha eliminado el historial de pago del salario del empleado!');
     }
 }

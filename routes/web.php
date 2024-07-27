@@ -16,6 +16,7 @@ use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\PosController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\BotmanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,7 +96,7 @@ Route::middleware(['permission:category.menu'])->group(function () {
 
 // ====== POS ======
 Route::middleware(['permission:pos.menu'])->group(function () {
-    Route::get('/pos', [PosController::class,'index'])->name('pos.index');
+    Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
     Route::post('/pos/add', [PosController::class, 'addCart'])->name('pos.addCart');
     Route::post('/pos/update/{rowId}', [PosController::class, 'updateCart'])->name('pos.updateCart');
     Route::get('/pos/delete/{rowId}', [PosController::class, 'deleteCart'])->name('pos.deleteCart');
@@ -158,4 +159,13 @@ Route::middleware(['permission:roles.menu'])->group(function () {
     Route::delete('/role/permission/{id}', [RoleController::class, 'rolePermissionDestroy'])->name('rolePermission.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+
+Route::match(['get', 'post'], '/botman', [BotmanController::class, 'handle']);
+/*Route::get('/chatbot', function () {
+    return view('botman');
+});*/
+
+
+
+require __DIR__ . '/auth.php';

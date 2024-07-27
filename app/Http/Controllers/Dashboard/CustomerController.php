@@ -69,7 +69,7 @@ class CustomerController extends Controller
 
         Customer::create($validatedData);
 
-        return Redirect::route('customers.index')->with('success', 'Customer has been created!');
+        return Redirect::route('customers.index')->with('success', '¡El cliente ha sido creado!');
     }
 
     /**
@@ -133,7 +133,7 @@ class CustomerController extends Controller
 
         Customer::where('id', $customer->id)->update($validatedData);
 
-        return Redirect::route('customers.index')->with('success', 'Customer has been updated!');
+        return Redirect::route('customers.index')->with('success', 'El cliente ha sido actualizado!');
     }
 
     /**
@@ -150,6 +150,6 @@ class CustomerController extends Controller
 
         Customer::destroy($customer->id);
 
-        return Redirect::route('customers.index')->with('success', 'Customer has been deleted!');
+        return Redirect::route('customers.index')->with('success', 'El cliente ha sido eliminado!');
     }
 }

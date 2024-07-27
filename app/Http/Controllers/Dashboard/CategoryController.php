@@ -50,7 +50,7 @@ class CategoryController extends Controller
 
         Category::create($validatedData);
 
-        return Redirect::route('categories.index')->with('success', 'Category has been created!');
+        return Redirect::route('categories.index')->with('success', '¡La categoría ha sido creada!');
     }
 
     /**
@@ -85,7 +85,7 @@ class CategoryController extends Controller
 
         Category::where('slug', $category->slug)->update($validatedData);
 
-        return Redirect::route('categories.index')->with('success', 'Category has been updated!');
+        return Redirect::route('categories.index')->with('success', '¡La categoría ha sido actualizada!');
     }
 
     /**
@@ -95,6 +95,6 @@ class CategoryController extends Controller
     {
         Category::destroy($category->slug);
 
-        return Redirect::route('categories.index')->with('success', 'Category has been deleted!');
+        return Redirect::route('categories.index')->with('success', '¡La categoría ha sido eliminada!');
     }
 }

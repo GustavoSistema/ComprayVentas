@@ -94,7 +94,7 @@ class ProductController extends Controller
 
         Product::create($validatedData);
 
-        return Redirect::route('products.index')->with('success', 'Product has been created!');
+        return Redirect::route('products.index')->with('success', '¡El producto ha sido creado!');
     }
 
     /**
@@ -165,7 +165,7 @@ class ProductController extends Controller
 
         Product::where('id', $product->id)->update($validatedData);
 
-        return Redirect::route('products.index')->with('success', 'Product has been updated!');
+        return Redirect::route('products.index')->with('success', '¡El producto ha sido actualizado!');
     }
 
     /**
@@ -182,7 +182,7 @@ class ProductController extends Controller
 
         Product::destroy($product->id);
 
-        return Redirect::route('products.index')->with('success', 'Product has been deleted!');
+        return Redirect::route('products.index')->with('success', '¡El producto ha sido eliminado!');
     }
 
     /**
@@ -231,9 +231,9 @@ class ProductController extends Controller
 
         } catch (Exception $e) {
             // $error_code = $e->errorInfo[1];
-            return Redirect::route('products.index')->with('error', 'There was a problem uploading the data!');
+            return Redirect::route('products.index')->with('error', '¡Hubo un problema al cargar los datos!');
         }
-        return Redirect::route('products.index')->with('success', 'Data has been successfully imported!');
+        return Redirect::route('products.index')->with('success', '¡Los datos se han importado correctamente!');
     }
 
     public function exportExcel($products){

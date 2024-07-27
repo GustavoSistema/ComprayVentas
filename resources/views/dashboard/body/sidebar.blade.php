@@ -2,7 +2,7 @@
 <div class="iq-sidebar sidebar-default" style="background: #F7FDFF">
     <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
         <a href="{{ route('dashboard') }}" class="header-logo">
-            <img src="{{ asset('assets/images/logo-min.png') }}" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo ml-3">APUURAY</h5>
+            <img src="{{ asset('assets/images/logo-min.png') }}" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo ml-3">L&J Autos</h5>
         </a>
         <div class="iq-menu-bt-sidebar ml-0">
             <i class="las la-bars wrapper-menu"></i>
@@ -16,7 +16,7 @@
                         <svg  class="svg-icon" id="p-dash1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
                         </svg>
-                        <span class="ml-4">Dashboards</span>
+                        <span class="ml-4">Inicio</span>
                     </a>
                 </li>
 
@@ -31,11 +31,12 @@
 
                 <hr>
 
+                {{-- Pedidos --}}
                 @if (auth()->user()->can('orders.menu'))
                 <li>
                     <a href="#orders" class="collapsed" data-toggle="collapse" aria-expanded="false">
                         <i class="fa-solid fa-basket-shopping"></i>
-                        <span class="ml-3">Orders</span>
+                        <span class="ml-3">Pedidos</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                         </svg>
@@ -44,33 +45,35 @@
 
                         <li class="{{ Request::is('orders/pending*') ? 'active' : '' }}">
                             <a href="{{ route('order.pendingOrders') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Pending Orders</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Ordenes pendientes</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('orders/complete*') ? 'active' : '' }}">
                             <a href="{{ route('order.completeOrders') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Complete Orders</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Pedidos completos</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('pending/due*') ? 'active' : '' }}">
                             <a href="{{ route('order.pendingDue') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Pending Due</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Pendiente de vencimiento</span>
                             </a>
                         </li>
                         <li class="{{ Request::is(['stock*']) ? 'active' : '' }}">
                             <a href="{{ route('order.stockManage') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Stock Management</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Gestion de Stocks</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 @endif
 
+
+                {{-- Productos --}}
                 @if (auth()->user()->can('product.menu'))
                 <li>
                     <a href="#products" class="collapsed" data-toggle="collapse" aria-expanded="false">
                         <i class="fa-solid fa-boxes-stacked"></i>
-                        <span class="ml-3">Products</span>
+                        <span class="ml-3">Productos</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                         </svg>
@@ -78,17 +81,17 @@
                     <ul id="products" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                         <li class="{{ Request::is(['products']) ? 'active' : '' }}">
                             <a href="{{ route('products.index') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Products</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Productos</span>
                             </a>
                         </li>
                         <li class="{{ Request::is(['products/create']) ? 'active' : '' }}">
                             <a href="{{ route('products.create') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Add Product</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Agregar Productos</span>
                             </a>
                         </li>
                         <li class="{{ Request::is(['categories*']) ? 'active' : '' }}">
                             <a href="{{ route('categories.index') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Categories</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Categorias</span>
                             </a>
                         </li>
                     </ul>
@@ -97,38 +100,42 @@
 
                 <hr>
 
+                {{-- Empleados --}}
                 @if (auth()->user()->can('employee.menu'))
                 <li class="{{ Request::is('employees*') ? 'active' : '' }}">
                     <a href="{{ route('employees.index') }}" class="svg-icon">
                         <i class="fa-solid fa-users"></i>
-                        <span class="ml-3">Employees</span>
+                        <span class="ml-3">Empleados</span>
                     </a>
                 </li>
                 @endif
 
+                {{-- Clientes --}}
                 @if (auth()->user()->can('customer.menu'))
                 <li class="{{ Request::is('customers*') ? 'active' : '' }}">
                     <a href="{{ route('customers.index') }}" class="svg-icon">
                         <i class="fa-solid fa-users"></i>
-                        <span class="ml-3">Customers</span>
+                        <span class="ml-3">Clientes</span>
                     </a>
                 </li>
                 @endif
 
+                {{-- Proveedores --}}
                 @if (auth()->user()->can('supplier.menu'))
                 <li class="{{ Request::is('suppliers*') ? 'active' : '' }}">
                     <a href="{{ route('suppliers.index') }}" class="svg-icon">
                         <i class="fa-solid fa-users"></i>
-                        <span class="ml-3">Suppliers</span>
+                        <span class="ml-3">Proveedores</span>
                     </a>
                 </li>
                 @endif
 
+                {{-- Salario --}}
                 @if (auth()->user()->can('salary.menu'))
                 <li>
                     <a href="#advance-salary" class="collapsed" data-toggle="collapse" aria-expanded="false">
                     <i class="fa-solid fa-cash-register"></i>
-                        <span class="ml-3">Salary</span>
+                        <span class="ml-3">Salario</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                         </svg>
@@ -137,33 +144,34 @@
 
                         <li class="{{ Request::is(['advance-salary', 'advance-salary/*/edit']) ? 'active' : '' }}">
                             <a href="{{ route('advance-salary.index') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>All Advance Salary</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Todo Salario</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('advance-salary/create*') ? 'active' : '' }}">
                             <a href="{{ route('advance-salary.create') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Create Advance Salary</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Crear Salario</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('pay-salary') ? 'active' : '' }}">
                             <a href="{{ route('pay-salary.index') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Pay Salary</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Pagar Salario</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('pay-salary/history*') ? 'active' : '' }}">
                             <a href="{{ route('pay-salary.payHistory') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>History Pay Salary</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Historial Pago Salario</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 @endif
 
+                {{-- Asistencia --}}
                 @if (auth()->user()->can('attendence.menu'))
                 <li>
                     <a href="#attendence" class="collapsed" data-toggle="collapse" aria-expanded="false">
                         <i class="fa-solid fa-calendar-days"></i>
-                        <span class="ml-3">Attendence</span>
+                        <span class="ml-3">Asistencia</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                         </svg>
@@ -187,11 +195,12 @@
                 <hr>
 
 
+                {{-- Roles y Permisos --}}
                 @if (auth()->user()->can('roles.menu'))
                 <li>
                     <a href="#permission" class="collapsed" data-toggle="collapse" aria-expanded="false">
                         <i class="fa-solid fa-key"></i>
-                        <span class="ml-3">Role & Permission</span>
+                        <span class="ml-3">Roles & Permisos</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                         </svg>
@@ -216,15 +225,17 @@
                 </li>
                 @endif
 
+                {{-- Usuarios --}}
                 @if (auth()->user()->can('user.menu'))
                 <li class="{{ Request::is('users*') ? 'active' : '' }}">
                     <a href="{{ route('users.index') }}" class="svg-icon">
                         <i class="fa-solid fa-users"></i>
-                        <span class="ml-3">Users</span>
+                        <span class="ml-3">Usuarios</span>
                     </a>
                 </li>
                 @endif
 
+                {{-- Backup --}}
                 @if (auth()->user()->can('database.menu'))
                 <li class="{{ Request::is('database/backup*') ? 'active' : '' }}">
                     <a href="{{ route('backup.index') }}" class="svg-icon">

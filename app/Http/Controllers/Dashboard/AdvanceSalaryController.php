@@ -73,9 +73,9 @@ class AdvanceSalaryController extends Controller
             $validatedData = $request->validate($rules);
             AdvanceSalary::create($validatedData);
 
-            return Redirect::route('advance-salary.create')->with('success', 'Advance Salary Paid Successfully!');
+            return Redirect::route('advance-salary.create')->with('success', '¡Salario anticipado pagado con éxito!');
         } else {
-            return Redirect::route('advance-salary.create')->with('warning', 'Advance Salary Already Paid!');
+            return Redirect::route('advance-salary.create')->with('warning', '¡Salario anticipado ya pagado!');
         }
     }
 
@@ -121,9 +121,9 @@ class AdvanceSalaryController extends Controller
             $validatedData = $request->validate($rules);
             AdvanceSalary::where('id', $advanceSalary->id)->update($validatedData);
 
-            return Redirect::route('advance-salary.edit', $advanceSalary->id)->with('success', 'Advance Salary Updated Successfully!');
+            return Redirect::route('advance-salary.edit', $advanceSalary->id)->with('success', '¡Salario anticipado actualizado con éxito!');
         } else {
-            return Redirect::route('advance-salary.edit', $advanceSalary->id)->with('warning', 'Advance Salary Already Paid!');
+            return Redirect::route('advance-salary.edit', $advanceSalary->id)->with('warning', '¡Salario anticipado ya pagado!');
         }
     }
 
@@ -134,6 +134,6 @@ class AdvanceSalaryController extends Controller
     {
         AdvanceSalary::destroy($advanceSalary->id);
 
-        return Redirect::route('advance-salary.index')->with('success', 'Advance Salary has been deleted!');
+        return Redirect::route('advance-salary.index')->with('success', '¡Se ha eliminado el salario anticipado!');
     }
 }

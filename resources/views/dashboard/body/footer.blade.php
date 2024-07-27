@@ -1,3 +1,4 @@
+{{-- 
 <footer class="iq-footer" style="background: #F7FDFF">
     <div class="container-fluid">
         <div class="card">
@@ -17,3 +18,4 @@
         </div>
     </div>
 </footer>
+--}}

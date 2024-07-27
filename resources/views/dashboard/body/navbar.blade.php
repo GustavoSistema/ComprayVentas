@@ -11,16 +11,18 @@
             <div class="iq-search-bar device-search">
                 <form action="#" class="searchbox">
                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                    <input type="text" class="text search-input" placeholder="Search here...">
+                    <input type="text" class="text search-input" placeholder="Busca aquí...">
                 </form>
             </div>
             <div class="d-flex align-items-center">
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-label="Toggle navigation">
                     <i class="ri-menu-3-line"></i>
                 </button>
 
+                {{-- Perfil y Cerrar Sesion --}}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-list align-items-center">
                         <li class="nav-item nav-icon search-content">
@@ -56,10 +58,10 @@
                                             <h5 class="mb-1">{{  auth()->user()->name }}</h5>
                                             <p class="mb-0">Since {{ date('d M, Y', strtotime(auth()->user()->created_at)) }}</p>
                                             <div class="d-flex align-items-center justify-content-center mt-3">
-                                                <a href="{{ route('profile') }}" class="btn border mr-2">Profile</a>
+                                                <a href="{{ route('profile') }}" class="btn border mr-2">Perfil</a>
                                                 <form action="{{ route('logout') }}" method="POST">
                                                     @csrf
-                                                    <button type="submit" class="btn border">Sign Out</button>
+                                                    <button type="submit" class="btn border">Cerrar Sesion</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -69,6 +71,7 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
     </div>

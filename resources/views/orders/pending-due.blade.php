@@ -14,7 +14,7 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Pending Order List</h4>
+                    <h4 class="mb-3">Lista de pedidos pendientes</h4>
                 </div>
                 <div>
                     <a href="{{ route('order.pendingDue') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
@@ -26,7 +26,7 @@
             <form action="{{ route('order.pendingDue') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     <div class="form-group row">
-                        <label for="row" class="col-sm-3 align-self-center">Row:</label>
+                        <label for="row" class="col-sm-3 align-self-center">Filas:</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="row">
                                 <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -38,10 +38,10 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Buscar:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input type="text" id="search" class="form-control" name="search" placeholder="Search order" value="{{ request('search') }}">
+                                <input type="text" id="search" class="form-control" name="search" placeholder="Buscar ordenes" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 </div>
@@ -57,14 +57,14 @@
                 <table class="table mb-0">
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
-                            <th>No.</th>
-                            <th>Invoice No</th>
-                            <th>@sortablelink('customer.name', 'name')</th>
-                            <th>@sortablelink('order_date', 'order date')</th>
-                            <th>Payment</th>
-                            <th>@sortablelink('pay')</th>
-                            <th>@sortablelink('due')</th>
-                            <th>Action</th>
+                            <th>#</th>
+                            <th>Factura No</th>
+                            <th>@sortablelink('customer.name', 'Nombre')</th>
+                            <th>@sortablelink('order_date', 'Fecha de Orden')</th>
+                            <th>Pago</th>
+                            <th>@sortablelink('Pagar')</th>
+                            <th>@sortablelink('Pendiente')</th>
+                            <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -88,7 +88,7 @@
                             <td>
                                 <div class="d-flex align-items-center list-action">
                                     <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Details" href="{{ route('order.orderDetails', $order->id) }}">
-                                        Details
+                                        Detalles
                                     </a>
                                     <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg" id="{{ $order->id }}" onclick="payDue(this.id)">Pay Due</button>
                                 </div>
@@ -111,10 +111,10 @@
                 @csrf
                 <input type="hidden" name="order_id" id="order_id">
                 <div class="modal-body">
-                    <h3 class="modal-title text-center mx-auto">Pay Due</h3>
+                    <h3 class="modal-title text-center mx-auto">Pagar adeudado</h3>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="due">Pay Now</label>
+                            <label for="due">Pagar ahora</label>
                             <input type="text" class="form-control bg-white @error('due') is-invalid @enderror" id="due" name="due">
                             @error('due')
                             <div class="invalid-feedback">
@@ -125,8 +125,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Pay</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Pagar</button>
                 </div>
             </form>
         </div>

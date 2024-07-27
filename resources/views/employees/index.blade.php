@@ -14,13 +14,13 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Employee List</h4>
-                    <p class="mb-0">A employee dashboard lets you easily gather and visualize employee data from optimizing <br>
-                        the employee experience, ensuring employee retention. </p>
+                    <h4 class="mb-3">Lista de empleados</h4>
+                    <p class="mb-0">Un panel de empleados le permite recopilar y visualizar fácilmente los datos de los empleados desde la optimización <br>
+                        la experiencia de los empleados, asegurando la retención de los mismos. </p>
                 </div>
                 <div>
-                <a href="{{ route('employees.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Add Employee</a>
-                <a href="{{ route('employees.index') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
+                <a href="{{ route('employees.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Empleado</a>
+                <a href="{{ route('employees.index') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear</a>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <form action="{{ route('employees.index') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     <div class="form-group row">
-                        <label for="row" class="col-sm-3 align-self-center">Row:</label>
+                        <label for="row" class="col-sm-3 align-self-center">Filas:</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="row">
                                 <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -41,10 +41,10 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Buscar:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input type="text" id="search" class="form-control" name="search" placeholder="Search employee" value="{{ request('search') }}">
+                                <input type="text" id="search" class="form-control" name="search" placeholder="Buscar empleado" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 </div>
@@ -61,14 +61,14 @@
                 <table class="table mb-0">
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
-                            <th>No.</th>
-                            <th>Photo</th>
-                            <th>@sortablelink('name')</th>
-                            <th>@sortablelink('email')</th>
-                            <th>@sortablelink('phone')</th>
-                            <th>@sortablelink('salary')</th>
-                            <th>@sortablelink('city')</th>
-                            <th>Action</th>
+                            <th>#</th>
+                            <th>Foto</th>
+                            <th>@sortablelink('Nombre')</th>
+                            <th>@sortablelink('Correo')</th>
+                            <th>@sortablelink('Celular')</th>
+                            <th>@sortablelink('Salario')</th>
+                            <th>@sortablelink('Ciudad')</th>
+                            <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -102,7 +102,7 @@
 
                         @empty
                         <div class="alert text-white bg-danger" role="alert">
-                            <div class="iq-alert-text">Data not Found.</div>
+                            <div class="iq-alert-text">Datos no encontrados.</div>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <i class="ri-close-line"></i>
                             </button>

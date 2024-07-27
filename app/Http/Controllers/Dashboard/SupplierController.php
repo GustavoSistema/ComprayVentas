@@ -71,7 +71,7 @@ class SupplierController extends Controller
 
         Supplier::create($validatedData);
 
-        return Redirect::route('suppliers.index')->with('success', 'Supplier has been created!');
+        return Redirect::route('suppliers.index')->with('success', '¡Se ha creado el proveedor!');
     }
 
     /**
@@ -136,7 +136,7 @@ class SupplierController extends Controller
 
         Supplier::where('id', $supplier->id)->update($validatedData);
 
-        return Redirect::route('suppliers.index')->with('success', 'Supplier has been updated!');
+        return Redirect::route('suppliers.index')->with('success', '¡El proveedor ha sido actualizado!');
     }
 
     /**
@@ -153,6 +153,6 @@ class SupplierController extends Controller
 
         Supplier::destroy($supplier->id);
 
-        return Redirect::route('suppliers.index')->with('success', 'Supplier has been deleted!');
+        return Redirect::route('suppliers.index')->with('success', '¡El proveedor ha sido eliminado!');
     }
 }
